@@ -12,11 +12,11 @@ public class Book implements Subject {
 
     private List<Observer> observers = new ArrayList<>();
     private String bookId;
-    private String availabilty;
+    private String availability;
 
-    Book(String bookId, String availabilty){
+    Book(String bookId, String availability){
         this.bookId = bookId;
-        this.availabilty = availabilty;
+        this.availability = availability;
     }
 
     @Override
@@ -32,12 +32,14 @@ public class Book implements Subject {
     @Override
     public void notifyObservers() {
         for(Observer observer : observers) {
-            observer.update(this.availabilty);
+            observer.update(this.availability);
         }
     }
 
-    public void setAvailability(String availabilty) {
-        this.availabilty = availabilty;
+    public void setAvailability(String availability) {
+        this.availability = availability;
         notifyObservers();
     }
+
+
 }
